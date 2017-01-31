@@ -1,0 +1,60 @@
+@font-face {
+
+    font-family: 'Pet-Me-64-2Y';
+    src:url('fonts/Pet-Me-64-2Y.ttf.woff') format('woff'),
+        url('fonts/Pet-Me-64-2Y.ttf.svg#Pet-Me-64-2Y') format('svg'),
+        url('fonts/Pet-Me-64-2Y.ttf.eot'),
+        url('fonts/Pet-Me-64-2Y.ttf.eot?#iefix') format('embedded-opentype');
+}
+ 
+body {
+	font-weight: normal;
+	#background: #url(http://bentran5c.weebly.com/uploads/2/3/3/6/23369130/7006855_orig.gif) #center center no-repeat; 
+	#background: linear-gradient(blue, cyan);
+	font-style: normal;
+	background: url(https://cdn-images-1.medium.com/max/800/1*Ojb8wi2l4_iAmTM9FrTvpg.png) center center no-repeat;
+	background-size: cover;
+	font-family: Pet-Me-64-2Y;
+	color: #7171ff;
+}
+
+#divForm {
+	width: 25%; 
+	height: 60%; 
+	margin-top: 5%; 
+	margin-left: auto; 
+	margin-right: auto; 
+	text-align: center; 
+	#background-color: white;
+	border-radius: 50px;
+	padding: 0px 10px 55px 10px;
+	display: table;
+}
+
+#cb { 
+	width: 75%; 
+	margin-left: auto; 
+	margin-right: auto; 
+	text-align: justify;
+}
+
+textarea { 
+	width: 25%; 
+	margin-left: 0;
+	visibility: hidden;
+}
+#intro {
+	font-weight: bold;
+}
+
+#submit { 
+	width: 90%;
+	height: 100;
+	display: table-cell;
+	background-color: white;
+	border-radius: 50px;
+	padding: 5px 27px 5px 10px;
+	font-size: larger;
+	font-weight: 900;
+	color: blueviolet;
+}

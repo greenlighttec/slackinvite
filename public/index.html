@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<title>Signup</title>
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+		  <link rel="stylesheet" href="style/main.css">
+	</head>
+	<body>
+		<div id="divForm">
+			<h1>Join LearnSlackers</h1>
+			<form id="invite-slack"><p>
+				<label for="first-name">First Name: </label>
+				
+					<input type="text" id="first-name">
+				</p><p>
+				<label for="last-name">Last Name: </label>
+				
+					<input type="text" id="last-name">
+				</p><p>
+				<label for="email-address">Email Add:*</label>
+				
+					<input type="email" id="email-address" required>
+				</p>
+				<p><div id="intro">Select the channels that interest you</div>
+				<div id="cb"></div></p>
+				<p>
+					<input type="submit" id="submit" value="Join Now!"/>
+				</p>
+			</form>
+			<label id="signUpOK"></textarea>
+		</div>
+		<textarea id="hiddenJSON"></textarea>
+		<textarea id="hiddenRES"></textarea>
+		<script src="scripts/frontend.js"></script>
+	</body>
+</html>
