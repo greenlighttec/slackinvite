@@ -7,30 +7,42 @@
 		  <meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 	<body>
-		<div><img id="background" src="https://cdn-images-1.medium.com/max/800/1*Ojb8wi2l4_iAmTM9FrTvpg.png" /></div>
+		<div><img id="background" src="https://www.thirdandgrove.com/sites/default/files/inline-images/javascript-promises.jpg" /></div>
 		<div id="mainArea">
 		<div id="divForm">
 			<h1>Join LearnSlackers</h1>
-			<form id="invite-slack"><p>
-				<label for="first-name">First Name: </label>
-				
+			<form id="invite-slack">
+				<div id="leftWrapper">
+					<p>
+					<label for="first-name">First Name: </label>
 					<input type="text" id="first-name">
-				</p><p>
-				<label for="last-name">Last Name: </label>
-				
+					</p>
+
+					<p>
+					<label for="last-name">Last Name: </label>
 					<input type="text" id="last-name">
-				</p><p>
-				<label for="email-address">Email Add:*</label>
-				
+					</p>
+
+					<p>
+					<label for="email-address">Email Add:*</label>
 					<input type="email" id="email-address" required>
-				</p>
-				<p><div id="intro">Select the channels that interest you</div>
-				<div id="cb"></div></p>
-				<p>
+					</p>
+				</div>
+
+				<div id="rightWrapper">
+					<p>
+					<div id="intro">Select the channels that interest you</div>
+					<div id="cb"></div>
+					</p>
+				</div>
+
+				<div id="wrapperFooter">
+					<p>
 					<input type="submit" id="submit" value="Join Now!"/>
-				</p>
+					</p>
+				</div>
 			</form>
-			<label id="signUpOK"></textarea>
+			<label id="signUpOK"></label>
 		</div>
 		</div>
 		<textarea id="hiddenJSON"></textarea>
