@@ -12,23 +12,45 @@ body {
 	#background: #url(http://bentran5c.weebly.com/uploads/2/3/3/6/23369130/7006855_orig.gif) #center center no-repeat; 
 	#background: linear-gradient(blue, cyan);
 	font-style: normal;
-	background: url(https://cdn-images-1.medium.com/max/800/1*Ojb8wi2l4_iAmTM9FrTvpg.png) center center no-repeat;
-	background-size: cover;
 	font-family: Pet-Me-64-2Y;
 	color: #7171ff;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	text-align: left;
+}
+
+#mainArea {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	overflow: auto;
+	z-index: 2;
+}
+
+#background {
+	position: absolute;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	#background: url(https://cdn-images-1.medium.com/max/800/1*Ojb8wi2l4_iAmTM9FrTvpg.png) center center no-repeat;
+	#background-size: contain;
 }
 
 #divForm {
 	width: 25%; 
 	height: 60%; 
-	margin-top: 5%; 
+	margin-top: 15%; 
 	margin-left: auto; 
 	margin-right: auto; 
 	text-align: center; 
 	#background-color: white;
-	border-radius: 50px;
+	#border-radius: 50px;
 	padding: 0px 10px 55px 10px;
-	display: table;
+	display: block;
 }
 
 #cb { 
@@ -49,12 +71,16 @@ textarea {
 
 #submit { 
 	width: 90%;
-	height: 100;
-	display: table-cell;
-	background-color: white;
+	#height: 100;
+	#display: table-cell;
+	background-color: #10009c;
 	border-radius: 50px;
 	padding: 5px 27px 5px 10px;
 	font-size: larger;
 	font-weight: 900;
-	color: blueviolet;
+
+}
+
+input[type="text"], input[type="email"] {
+	background-color: #10009c;
 }
