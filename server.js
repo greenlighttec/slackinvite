@@ -1,13 +1,37 @@
+'use strict';
 const path = require('path'); // This requires path so we can use its join method later
-
 const express = require('express'); // Require express so its methods can be used
 const request = require('request'); //Require request library for backend calls.
 const bodyParser = require('body-parser'); //Require body-parser for POST
 const isemail = require('isemail'); //Require isemail for email validation
 
-const app = express(); // app is the actual server created by express
 const token = process.env.SLACK_INVITE_TOKEN; //place your token in this env variable, or replace with token as string.
 const baseUrl = "https://slack.com/api/";
+
+var lex = require('letsencrypt-express').create({
+	server: 'https://acme-v01.api.letsencrypt.org/directory',
+	challenges: { 'http-01': require('le-challenge-fs').create({ webrootPath: '/tmp/acme-challenges' }) },
+	store: require('le-store-certbot').create({ webrootPath: '/tmp/acme-challenges' }),
+	approveDomains: approveDomains});
+
+
+function approveDomains(opts, certs, cb) {
+  if (certs) {
+    opts.domains = certs.altnames;
+  }
+  else {
+    opts.email = 'mendygreen@hotmail.com';
+    opts.agreeTos = true;
+    opts.domains = [ 'join.learnslackers.com' ];
+  }
+
+  cb(null, { options: opts, certs: certs });
+}
+
+
+require('http').createServer(lex.middleware(require('redirect-https')())).listen(80,function(){console.log('Listening for ACME http-01 challenges on ', this.address());})
+const app = express(); // app is the actual server created by express
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,7 +42,7 @@ app.get('/getChannels', (req, res) => {
 	function callback(error, respond, body) {
 		var obj = JSON.parse(body)
 		var channels = obj.channels
-		newChannels = channels.map((currentValue) => { return {id: currentValue.id, name: currentValue.name, is_archived: currentValue.is_archived}; });
+		var newChannels = channels.map((currentValue) => { return {id: currentValue.id, name: currentValue.name, is_archived: currentValue.is_archived}; });
 		res.send(newChannels)
 		return}
 	request(fullUrl, callback)
@@ -55,4 +79,6 @@ app.post('/submitInvite', (req, res) => {
 
 // This runs the server and should always be last
 // If the PORT env variable isn't set it uses 3000 as the port
-app.listen(process.env.PORT || 3000);
+//app.listen(process.env.PORT || 3000);
+
+require('https').createServer(lex.httpsOptions, lex.middleware(app)).listen(443,function(){console.log("Listening for ACME tls-sni-01 challenges and serve app on", this.address());})
