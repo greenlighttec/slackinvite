@@ -8,7 +8,7 @@ $(document).ready(function() {
 				if (!a[i].is_archived) {
 				//var start = i % 2 === 0 ? '<p>' : '';
 				//var end = i % 2 !== 0 ? '</p>' : '';
-				var htmlString = '<label for="' + a[i].id + '" class="form-check-label" style="padding-right: 10px;"><input type="checkbox" value="' + a[i].name + '" id="' + a[i].id + '" class="form-check" />' + a[i].name + '</label>';
+				var htmlString = '<label for="' + a[i].id + '" class="form-check-label" style="padding-right: 25px;"><input type="checkbox" value="' + a[i].name + '" id="' + a[i].id + '" class="form-check" />' + a[i].name + '</label>';
 				html += htmlString;}
 			}
 		cbh.html(html);
