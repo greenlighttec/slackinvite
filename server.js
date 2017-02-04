@@ -4,10 +4,13 @@ const express = require('express'); // Require express so its methods can be use
 const request = require('request'); //Require request library for backend calls.
 const bodyParser = require('body-parser'); //Require body-parser for POST
 const isemail = require('isemail'); //Require isemail for email validation
-
+const https = require('https'); //Require HTTPS module for secure hosting
+const fs = require('fs');
+const port = "3000"
 const app = express(); // app is the actual server created by express
 const token = process.env.SLACK_INVITE_TOKEN; //place your token in this env variable, or replace with token as string.
 const baseUrl = "https://slack.com/api/";
+const options = {key: fs.readFileSync('cert/cert.key'),cert: fs.readFileSync('cert/cert.cert')};
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -55,4 +58,7 @@ app.post('/submitInvite', (req, res) => {
 
 // This runs the server and should always be last
 // If the PORT env variable isn't set it uses 3000 as the port
-app.listen(process.env.PORT || 3000);
+//app.listen(process.env.PORT || 3000);
+var server = https.createServer(options, app).listen(port, function(){
+  console.log("Express server listening on port " + port);
+});
