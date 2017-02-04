@@ -20,6 +20,7 @@ body {
 	border-radius: 50px;
 	padding: 10 11 39 14;
 	display: block;
+	position: relative;
 }
 
 
@@ -30,12 +31,12 @@ textarea {
 }
 
 #background {
-    width: 100%; 
-    height: 100%; 
-    position: fixed; 
-    left: 0px; 
-    top: 0px; 
-    z-index: -1;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	z-index: -1;
 }
 
 .stretch {
@@ -53,4 +54,9 @@ input[type=checkbox] {
 label {
     position: relative;
 
+}
+
+.footer {
+	position: absolute;
+	bottom: 0px;
 }
