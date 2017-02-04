@@ -2,51 +2,48 @@
 	<head>
 		<title>Signup</title>
 		<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-		  <link rel="stylesheet" href="style/main.css">
-		  <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		  <meta name="viewport" content="width=device-width, initial-scale=1">
+		  <link rel="stylesheet" href="style/main.css">
 	</head>
 	<body>
-		<div><img id="background" src="https://www.thirdandgrove.com/sites/default/files/inline-images/javascript-promises.jpg" /></div>
-		<div id="mainArea">
+		<div id="background">
+			<img src="http://i.dailymail.co.uk/i/pix/2011/02_03/cab.gif" class="stretch" alt="" />
+		</div>
+		<div id="mainArea" class="container">
 		<div id="divForm">
 			<h1>Join LearnSlackers</h1>
 			<form id="invite-slack">
-				<div id="leftWrapper">
-					<p>
-					<label for="first-name">First Name: </label>
-					<input type="text" id="first-name">
-					</p>
+					<div class="form-group">
+					<label class="sr-only" for="first-name">First Name: </label>
+					<input class="form-control" type="text" id="first-name" placeholder="John">
+					</div>
 
-					<p>
-					<label for="last-name">Last Name: </label>
-					<input type="text" id="last-name">
-					</p>
+					<div class="form-group">
+					<label class="sr-only" for="last-name">Last Name: </label>
+					<input class="form-control" type="text" id="last-name" placeholder="Smith">
+					</div>
 
-					<p>
-					<label for="email-address">Email Add:*</label>
-					<input type="email" id="email-address" required>
-					</p>
-				</div>
+					<div class="form-group">
+					<label class="sr-only" for="email-address">Email Add:*</label>
+					<input class="form-control" type="email" id="email-address" required placeholder="jsmith@email.com">
+					</div>
 
-				<div id="rightWrapper">
-					<p>
+					<div class="form-group">
 					<div id="intro">Select the channels that interest you</div>
-					<div id="cb"></div>
-					</p>
-				</div>
+					<div id="cb" class="form-group"></div>
+					</div>
 
-				<div id="wrapperFooter">
-					<p>
-					<input type="submit" id="submit" value="Join Now!"/>
-					</p>
-				</div>
+					<div class="form-group">
+					<a href="#" id="linkSubmit" class="btn btn-primary">Join Now!</a>
+					</div>
 			</form>
 			<label id="signUpOK"></label>
 		</div>
 		</div>
-		<textarea id="hiddenJSON"></textarea>
-		<textarea id="hiddenRES"></textarea>
+		<textarea id="hiddenJSON" style="visibility: hidden;"></textarea>
+		<textarea id="hiddenRES" style="visibility: hidden;"></textarea>
 		<script src="scripts/frontend.js"></script>
 	</body>
 </html>

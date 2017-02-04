@@ -1,84 +1,44 @@
-@font-face {
-
-    font-family: 'Pet-Me-64-2Y';
-    src:url('fonts/Pet-Me-64-2Y.ttf.woff') format('woff'),
-        url('fonts/Pet-Me-64-2Y.ttf.svg#Pet-Me-64-2Y') format('svg'),
-        url('fonts/Pet-Me-64-2Y.ttf.eot'),
-        url('fonts/Pet-Me-64-2Y.ttf.eot?#iefix') format('embedded-opentype');
-}
- 
 body {
 	font-weight: normal;
 	font-style: normal;
-	#font-family: Pet-Me-64-2Y;
-	font-family: cursive;
-	color: #7171ff;
+	color: #337ab7;
 	margin: 0;
 	padding: 0;
-	width: 100%;
-	height: 100%;
 	text-align: left;
 }
 
+
 #mainArea {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	overflow: auto;
-	z-index: 2;
-}
-
-#background {
-	position: absolute;
-	z-index: 1;
-	width: 100%;
-	height: 100%;
-
-}
-
-#divForm {
-	width: 25%; 
-	height: 60%; 
-	margin-top: 15%; 
+	width: 450px; 
+	#height: 60%; 
+	margin-top: 60px; 
 	margin-left: auto; 
 	margin-right: auto; 
 	text-align: center; 
-	background-color: black;
+	background-color: white;
+	border-style: solid;
 	border-radius: 50px;
 	padding: 10 11 39 14;
 	display: block;
 }
 
-#cb { 
-	width: 75%; 
-	margin-left: auto; 
-	margin-right: auto; 
-	text-align: justify;
-}
 
 textarea { 
 	width: 25%; 
 	margin-left: 0;
 	visibility: hidden;
 }
-#intro {
-	font-weight: bold;
+
+#background {
+    width: 100%; 
+    height: 100%; 
+    position: fixed; 
+    left: 0px; 
+    top: 0px; 
+    z-index: -1;
 }
 
-#submit { 
-	width: 40%;
-	#height: 100;
-	#display: table-cell;
-	background-color: #10009c;
-	border-radius: 50px;
-	padding: 5px 27px 5px 27px;
-	font-size: larger;
-	font-weight: 900;
-
-}
-
-input[type="text"], input[type="email"] {
-	background-color: #10009c;
+.stretch {
+    width:100%;
+    height:100%;
 }

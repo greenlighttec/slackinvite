@@ -6,10 +6,10 @@ $(document).ready(function() {
 			var html = '';
 			for (let i = 0, l = a.length;i<l;i++) {
 				if (!a[i].is_archived) {
-				var start = i % 2 === 0 ? '<p>' : '';
-				var end = i % 2 !== 0 ? '</p>' : '';
-				var htmlString = '<label for="' + a[i].id + '" style="padding-right: 10px;"><input type="checkbox" value="' + a[i].name + '" id="' + a[i].id + '" class="c-item" />' + a[i].name + '</label>';
-				html += start + htmlString + end;}
+				//var start = i % 2 === 0 ? '<p>' : '';
+				//var end = i % 2 !== 0 ? '</p>' : '';
+				var htmlString = '<label for="' + a[i].id + '" class="form-check-label" style="padding-right: 10px;"><input type="checkbox" value="' + a[i].name + '" id="' + a[i].id + '" class="form-check" />' + a[i].name + '</label>';
+				html += htmlString;}
 			}
 		cbh.html(html);
 	}
@@ -53,6 +53,11 @@ $(document).ready(function() {
 		}
 
 		$.post(('/submitInvite'), data, returnSignupResults, 'json');
+		})
+		
+		$('#linkSubmit').click(function(event) {
+			event.preventDefault()
+			$('#invite-slack').submit()
 		})
 	httpGetAsync("/getChannels", loadChannelList);
 });
