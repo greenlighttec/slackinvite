@@ -6,6 +6,8 @@ const bodyParser = require('body-parser'); //Require body-parser for POST
 const isemail = require('isemail'); //Require isemail for email validation
 
 const token = process.env.SLACK_INVITE_TOKEN; //place your token in this env variable, or replace with token as string.
+const optEmail = process.env.EMAIL_ADDRESS; //place the email address to register LE Cert to in this env variable
+const optDomains = process.env.DOMAINS; //place the list of domains to protect in a SPACE SEPARATED env variable
 const baseUrl = "https://slack.com/api/";
 
 var lex = require('letsencrypt-express').create({
@@ -15,14 +17,15 @@ var lex = require('letsencrypt-express').create({
 	approveDomains: approveDomains});
 
 
+
 function approveDomains(opts, certs, cb) {
   if (certs) {
     opts.domains = certs.altnames;
   }
   else {
-    opts.email = 'mendygreen@hotmail.com';
+    opts.email = optEmail;
     opts.agreeTos = true;
-    opts.domains = [ 'join.learnslackers.com' ];
+    opts.domains = optDomains.split(' ');
   }
 
   cb(null, { options: opts, certs: certs });
