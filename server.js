@@ -5,9 +5,12 @@ const request = require('request'); //Require request library for backend calls.
 const bodyParser = require('body-parser'); //Require body-parser for POST
 const isemail = require('isemail'); //Require isemail for email validation
 
-const token = process.env.SLACK_INVITE_TOKEN; //place your token in this env variable, or replace with token as string.
-const optEmail = process.env.EMAIL_ADDRESS; //place the email address to register LE Cert to in this env variable
-const optDomains = process.env.DOMAINS; //place the list of domains to protect in a SPACE SEPARATED env variable
+const token = process.env.SLACK_INVITE_TOKEN; //place your token in this env variable called SLACK_INVITE_TOKEN.
+const optEmail = process.env.EMAIL_ADDRESS; //place the email address to register LE Cert to in this env variable called EMAIL_ADDRESS
+const optDomains = process.env.DOMAINS; //place the list of domains to protect in a UNDERSCORE SEPARATED env variable called DOMAINS
+const securePort = process.env.SECURE_PORT //place the HTTPS port to listen to in this env variable called SECURE_PORT
+const unsecurePort = process.env.PORT //place the HTTP port to listen to in this env variable called PORT
+
 const baseUrl = "https://slack.com/api/";
 
 var lex = require('letsencrypt-express').create({
@@ -25,14 +28,19 @@ function approveDomains(opts, certs, cb) {
   else {
     opts.email = optEmail;
     opts.agreeTos = true;
-    opts.domains = optDomains.split(' ');
+    opts.domains = optDomains.split('_');
   }
 
   cb(null, { options: opts, certs: certs });
 }
 
 
-require('http').createServer(lex.middleware(require('redirect-https')())).listen(80,function(){console.log('Listening for ACME http-01 challenges on ', this.address());})
+require('http').createServer(
+	lex.middleware(
+	 require('redirect-https')(
+	  {port: securePort}
+	 )
+	)).listen(unsecurePort,function(){console.log('Listening for ACME http-01 challenges on ', this.address());})
 const app = express(); // app is the actual server created by express
 
 
@@ -84,4 +92,4 @@ app.post('/submitInvite', (req, res) => {
 // If the PORT env variable isn't set it uses 3000 as the port
 //app.listen(process.env.PORT || 3000);
 
-require('https').createServer(lex.httpsOptions, lex.middleware(app)).listen(443,function(){console.log("Listening for ACME tls-sni-01 challenges and serve app on", this.address());})
+require('https').createServer(lex.httpsOptions, lex.middleware(app)).listen(securePort,function(){console.log("Listening for ACME tls-sni-01 challenges and serve app on", this.address());})
