@@ -28,13 +28,24 @@ $(document).ready(function() {
 			}
 		}
 		a.sort(chcompare);
+		var curgroup = '';
 		for (let i = 0, l = a.length;i<l;i++) {
 			if (!a[i].is_archived) {
+				if (!(curgroup === a[i].chgroup)) {
+					if (!(curgroup === '')) {
+						html += '</div>'
+					}
+					curgroup = a[i].chgroup;
+					html += '<div id="'+curgroup+'" class="form-sub-group><p>'+curgroup+'</p>'
+				}
 				//var start = i % 2 === 0 ? '<p>' : '';
 				//var end = i % 2 !== 0 ? '</p>' : '';
 				var htmlString = '<label for="' + a[i].id + '" class="form-check-label" style="padding-right: 25px;"><input type="checkbox" value="' + a[i].name + '" id="' + a[i].id + '" class="form-check" />' + a[i].name + '</label>';
 				html += htmlString;
 			}
+		}
+		if (!(curgroup === '')) {
+			html += '</div>'
 		}
 		cbh.html(html);
 	}
