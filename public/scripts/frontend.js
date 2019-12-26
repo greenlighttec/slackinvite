@@ -36,7 +36,7 @@ $(document).ready(function() {
 						html += '</div>'
 					}
 					curgroup = a[i].chgroup;
-					html += '<div id="'+curgroup+'" class="form-sub-group><p>'+curgroup+'</p>'
+					html += '<div id="'+curgroup+'" class="form-sub-group"><p>'+curgroup+'</p>'
 				}
 				//var start = i % 2 === 0 ? '<p>' : '';
 				//var end = i % 2 !== 0 ? '</p>' : '';
