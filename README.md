@@ -8,6 +8,7 @@
 ##### Basic layout
 
 server.js: This is the node base script that powers the HTTP server.
+
 	CONFIGURE ENV VARIABLES FOR RUN
 		1. PORT = HTTP port for letsencrypt to listen to
 		2. SECURE_PORT = HTTPS port for node to listen on for the primary website
